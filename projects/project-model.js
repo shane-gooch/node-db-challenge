@@ -2,7 +2,8 @@ const db = require("../data/db-config.js");
 
 module.exports = {
   get,
-  getById
+  getById,
+  add
 };
 
 function get() {
@@ -10,5 +11,9 @@ function get() {
 }
 
 function getById(id) {
-  return db("projeccts").where({ id });
+  return db("projects").where({ id });
+}
+
+function add(project) {
+  return db("projects").insert(project);
 }
