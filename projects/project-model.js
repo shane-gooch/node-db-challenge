@@ -28,6 +28,7 @@ function getTasks(id) {
       "projects.project_description",
       "tasks.task_description",
       "tasks.task_notes",
+      "tasks.completed",
       "tasks.project_id"
     )
     .where({ project_id: id });

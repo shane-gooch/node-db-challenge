@@ -25,13 +25,16 @@ exports.up = function(knex) {
         .notNullable()
         .references("id")
         .inTable("projects")
-        .onDelete("RESTRICT")
+        .onDelete("CASCADE")
         .onUpdate("CASCADE");
     })
     .createTable("resources", tbl => {
       tbl.increments();
 
-      tbl.string("resource_name").notNullable();
+      tbl
+        .string("resource_name")
+        .notNullable()
+        .unique();
       tbl.string("resource_description");
     })
     .createTable("projects_resources", tbl => {

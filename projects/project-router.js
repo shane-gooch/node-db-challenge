@@ -9,6 +9,10 @@ const router = express.Router();
 router.get("/", (req, res) => {
   Projects.get()
     .then(projects => {
+      //   const boolean = projects[0].map(project => {
+      //     const newObj = (project.completed = !!+`${project.completed}`);
+      //     return { ...project, newObj };
+      //   });
       res.status(200).json(projects);
     })
     .catch(err => {
